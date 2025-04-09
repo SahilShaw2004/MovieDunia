@@ -244,7 +244,7 @@ function MovieDets({
         try {
           // First fetch movie details from OMDB
           const res = await fetch(
-            `http://www.omdbapi.com/?apikey=${API}&i=${selectedId}`
+            `https://www.omdbapi.com/?apikey=${API}&i=${selectedId}`
           );
           const data = await res.json();
           setMovie(data);
@@ -558,7 +558,7 @@ export default function App() {
           const omdbMovies = await Promise.all(
             moviesWithImdb.map(async (imdbId) => {
               const res = await fetch(
-                `http://www.omdbapi.com/?apikey=${API}&i=${imdbId}`
+                `https://www.omdbapi.com/?apikey=${API}&i=${imdbId}`
               );
               return res.json();
             })
@@ -573,7 +573,7 @@ export default function App() {
           setHasMore(page < tmdbData.total_pages);
         } else {
           // Regular search
-          searchUrl = `http://www.omdbapi.com/?apikey=${API}&s=${searchQuery}&page=${page}`;
+          searchUrl = `https://www.omdbapi.com/?apikey=${API}&s=${searchQuery}&page=${page}`;
           const res = await fetch(searchUrl, { signal });
           const data = await res.json();
 
