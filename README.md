@@ -1,131 +1,130 @@
-# Movie Dunia
+# 🎬 Movie Dunia
 
-A modern movie search and discovery application built with React.
+**Movie Dunia** is a modern and responsive movie discovery web application built with **React**. It allows users to search for movies from **OMDB** and **TMDB**, rate them using a custom star component, view trailers, and maintain a personal watchlist — all in a clean, minimal, CSS-powered UI.
 
-## Features
+---
 
-- Search movies from OMDB and TMDB databases
-- View movie details, ratings, and trailers
-- Track watched and currently watching movies
-- Responsive design for all devices
+## 🚀 Features
 
-## Setup
+- 🔍 **Movie Search** with dynamic suggestions from **OMDB** and **TMDB** databases  
+- ⭐ **Interactive Star Rating System** — reusable and customizable  
+- 📋 **Watchlist Support** — track “Watched” and “Currently Watching” movies  
+- 🎥 **Integrated Trailer Preview** using embedded YouTube players  
+- 🧾 **IMDB & User Ratings** displayed with visual clarity  
+- 📱 **Responsive Layout** — adapts to mobile, tablet, and desktop  
+- 🎨 **Modern UI** — built entirely with **CSS**, no Tailwind or external frameworks  
 
-1. Clone the repository
+---
 
-```bash
-git clone https://github.com/yourusername/moviedunia.git
-cd moviedunia
+## 📁 Project Structure
+
+```
+.
+├── public/
+├── src/
+│   ├── App.js           # Main application component
+│   ├── StarRating.js    # Reusable star rating component
+│   ├── index.js         # React entry point
+│   ├── index.css        # Global styles and responsive layout
+│   └── components/      # (Optional) Reusable UI components
+└── README.md
 ```
 
-2. Install dependencies
+---
+
+## 🛠 Technologies Used
+
+- ⚛️ React 18+
+- 🎨 Pure CSS (No Tailwind or frameworks)
+- 💡 Responsive Grid & Flexbox Layout
+- 🌈 CSS Variables for theming
+- ⭐ SVG Icons for rating system
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/SahilShaw2004/MovieDunia.git
+cd MovieDunia
+```
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-3. Create a `.env` file in the root directory and add your API keys:
+### 3. Create a `.env` file in the root directory and add your API keys:
 
 ```env
 REACT_APP_OMDB_API_KEY=your_omdb_api_key
 REACT_APP_TMDB_API_KEY=your_tmdb_api_key
 ```
 
-4. Start the development server
+### 4. Start the development server
 
 ```bash
 npm start
 ```
 
-## API Keys
+---
 
-This application uses two APIs:
+## 🔐 API Keys
 
-1. OMDB API (https://www.omdbapi.com/)
+This application uses two movie APIs:
 
-   - Sign up for a free API key
-   - Add it to your `.env` file as `REACT_APP_OMDB_API_KEY`
+### 1. [OMDB API](https://www.omdbapi.com/)
+- Sign up for a free API key
+- Add it to your `.env` as:
+  ```
+  REACT_APP_OMDB_API_KEY=your_omdb_api_key
+  ```
 
-2. TMDB API (https://www.themoviedb.org/)
-   - Sign up for a free API key
-   - Add it to your `.env` file as `REACT_APP_TMDB_API_KEY`
+### 2. [TMDB API](https://www.themoviedb.org/)
+- Create a free TMDB account to generate an API key
+- Add it to your `.env` as:
+  ```
+  REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+  ```
 
-## Security Note
+---
 
-Never commit your `.env` file to version control. The `.gitignore` file is already set up to prevent this.
+## 🔐 Security Note
 
-## Contributing
+**Never commit your `.env` file** to version control. This project’s `.gitignore` already ignores it for you.
 
-Feel free to submit issues and enhancement requests!
+---
 
-# Getting Started with Create React App
+## 🤝 Contributing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Contributions, issues, and feature requests are welcome!  
+The project is beginner-friendly and designed for small to mid-size deployments.
 
-## Available Scripts
+> You don’t need to eject. The built-in features are fully customizable without it.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🧩 Customization
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔧 Easily swap OMDB/TMDB with other APIs (e.g., RapidAPI, FilmAffinity)
+- 🎨 Customize the `StarRating` component: size, color, messages, etc.
+- 📦 Extend watchlist support to persistent backend (Firebase, Supabase, MongoDB, etc.)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧠 Credits
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Created with ❤️ by **[Sahil Shaw]**  
+Inspired by modern platforms like **IMDB**, **TMDB**, and **Letterboxd**
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📃 License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is licensed under the **MIT License**.  
+Feel free to use, share, and enhance it for your own projects!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# MovieDunia"
+---
