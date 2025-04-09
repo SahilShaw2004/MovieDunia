@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import StarRating from "./StarRating";
-const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 function Logo() {
   return (
     <div className="logo">
@@ -56,19 +54,6 @@ function Search({ query, setQuery, movies, onSelectMovie, onFocus }) {
     </div>
   );
 }
-
-function SearchMatched({ movies }) {
-  return (
-    <p className="num-results">
-      Found <strong>{movies.length}</strong> results
-    </p>
-  );
-}
-
-function Navbar({ children }) {
-  return <nav className="nav-bar">{children}</nav>;
-}
-
 function Movie({ movie, onSelectMovie }) {
   return (
     <div className="movie-card" onClick={() => onSelectMovie(movie.imdbID)}>
@@ -76,80 +61,6 @@ function Movie({ movie, onSelectMovie }) {
     </div>
   );
 }
-
-function MovieList({ movies, onSelectMovie }) {
-  return (
-    <ul className="movie-grid">
-      {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
-      ))}
-    </ul>
-  );
-}
-
-// function Box({ children }) {
-//   const [isOpen, setIsOpen] = useState(true);
-//   return (
-//     <div className="box">
-//       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
-//         {isOpen ? "–" : "+"}
-//       </button>
-//       {isOpen && children}
-//     </div>
-//   );
-// }
-// function WatchedBox() {
-//   const [watched, setWatched] = useState(tempWatchedData);
-//   const [isOpen2, setIsOpen2] = useState(true);
-
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-//           <WatchSummary watched={watched} />
-//           <WatchMovieList watched={watched} />
-//         </>
-//       )}
-//     </div>
-//   );
-// }
-
-// function WatchSummary({ watched }) {
-//   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-//   const avgUserRating = average(watched.map((movie) => movie.userRating));
-//   const avgRuntime = average(watched.map((movie) => movie.runtime));
-
-//   return (
-//     <div className="summary">
-//       <h2>Movies you watched</h2>
-//       <div>
-//         <p>
-//           <span>#️⃣</span>
-//           <span>{watched.length} movies</span>
-//         </p>
-//         <p>
-//           <span>⭐️</span>
-//           <span>{avgImdbRating.toFixed(2)}</span>
-//         </p>
-//         <p>
-//           <span>🌟</span>
-//           <span>{avgUserRating.toFixed(2)}</span>
-//         </p>
-//         <p>
-//           <span>⏳</span>
-//           <span>{avgRuntime} min</span>
-//         </p>
-//       </div>
-//     </div>
-//   );
-// }
-
 function WatchMovie({ movie, onDeleteWatched }) {
   return (
     <div className="watched-movie-card">
@@ -466,15 +377,6 @@ function WatchMovieList({ watched, onDeleteWatched }) {
     </div>
   );
 }
-
-function Loader() {
-  return <p className="loader"> Loading..</p>;
-}
-
-function Main({ children }) {
-  return <main className="main">{children}</main>;
-}
-
 const API = process.env.REACT_APP_OMDB_API_KEY;
 const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
