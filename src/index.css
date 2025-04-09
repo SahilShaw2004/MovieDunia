@@ -169,6 +169,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   z-index: 999;
+  padding-top: 4px;
 }
 
 .list {
