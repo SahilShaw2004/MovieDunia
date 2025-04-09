@@ -1,3 +1,63 @@
+# Movie Dunia
+
+A modern movie search and discovery application built with React.
+
+## Features
+
+- Search movies from OMDB and TMDB databases
+- View movie details, ratings, and trailers
+- Track watched and currently watching movies
+- Responsive design for all devices
+
+## Setup
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/moviedunia.git
+cd moviedunia
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory and add your API keys:
+
+```env
+REACT_APP_OMDB_API_KEY=your_omdb_api_key
+REACT_APP_TMDB_API_KEY=your_tmdb_api_key
+```
+
+4. Start the development server
+
+```bash
+npm start
+```
+
+## API Keys
+
+This application uses two APIs:
+
+1. OMDB API (https://www.omdbapi.com/)
+
+   - Sign up for a free API key
+   - Add it to your `.env` file as `REACT_APP_OMDB_API_KEY`
+
+2. TMDB API (https://www.themoviedb.org/)
+   - Sign up for a free API key
+   - Add it to your `.env` file as `REACT_APP_TMDB_API_KEY`
+
+## Security Note
+
+Never commit your `.env` file to version control. The `.gitignore` file is already set up to prevent this.
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +128,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# MovieDunia" 
+"# MovieDunia"

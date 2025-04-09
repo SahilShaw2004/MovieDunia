@@ -251,7 +251,7 @@ function MovieDets({
 
           // Find TMDB movie using IMDB ID
           const tmdbSearchRes = await fetch(
-            `https://api.themoviedb.org/3/find/${selectedId}?api_key=67b611c55c9d1b00c642b059ef950b52&external_source=imdb_id`
+            `https://api.themoviedb.org/3/find/${selectedId}?api_key=${TMDB_API_KEY}&external_source=imdb_id`
           );
           const tmdbSearchData = await tmdbSearchRes.json();
 
@@ -263,7 +263,7 @@ function MovieDets({
 
             // Fetch videos from TMDB
             const videosRes = await fetch(
-              `https://api.themoviedb.org/3/movie/${tmdbId}/videos?api_key=67b611c55c9d1b00c642b059ef950b52`
+              `https://api.themoviedb.org/3/movie/${tmdbId}/videos?api_key=${TMDB_API_KEY}`
             );
             const videosData = await videosRes.json();
 
@@ -475,7 +475,8 @@ function Main({ children }) {
   return <main className="main">{children}</main>;
 }
 
-const API = "8b86815c";
+const API = process.env.REACT_APP_OMDB_API_KEY;
+const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 export default function App() {
   const [movies, setMovies] = useState([]);
@@ -533,7 +534,7 @@ export default function App() {
 
           // Fetch popular movies from TMDB
           const tmdbRes = await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=67b611c55c9d1b00c642b059ef950b52&page=${actualPage}`
+            `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_API_KEY}&page=${actualPage}`
           );
           const tmdbData = await tmdbRes.json();
 
@@ -546,7 +547,7 @@ export default function App() {
           const moviesWithImdb = await Promise.all(
             shuffledResults.map(async (movie) => {
               const movieDetails = await fetch(
-                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=67b611c55c9d1b00c642b059ef950b52&append_to_response=external_ids`
+                `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${TMDB_API_KEY}&append_to_response=external_ids`
               );
               const details = await movieDetails.json();
               return details.external_ids.imdb_id;
@@ -677,7 +678,11 @@ export default function App() {
 
             <section className="movie-section">
               <h2
-                className={isSearchFocused ? "heading search-mode" : "heading suggestion-mode"}
+                className={
+                  isSearchFocused
+                    ? "heading search-mode"
+                    : "heading suggestion-mode"
+                }
               >
                 {isSearchFocused
                   ? `Showing search results for "${query}"`
