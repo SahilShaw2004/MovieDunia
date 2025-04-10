@@ -1269,6 +1269,7 @@ EMPTY STAR
 
   .movie-card img {
     height: 180px;
+    object-position:Top;
   }
 
   .movie-section h2 {

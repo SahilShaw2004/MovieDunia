@@ -55,9 +55,13 @@ function Search({ query, setQuery, movies, onSelectMovie, onFocus }) {
   );
 }
 function Movie({ movie, onSelectMovie }) {
+  const posterUrl =
+    movie.Poster && movie.Poster !== "N/A"
+      ? movie.Poster
+      : "https://via.placeholder.com/300x450?text=No+Poster+Available";
   return (
     <div className="movie-card" onClick={() => onSelectMovie(movie.imdbID)}>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
+      <img src={posterUrl} alt={`${movie.Title} poster`} />
     </div>
   );
 }
@@ -382,8 +386,17 @@ const TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
-  const [currentlyWatching, setCurrentlyWatching] = useState([]);
+  // const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(() => {
+     const storedValue = localStorage.getItem('watched');
+     return storedValue ? JSON.parse(storedValue) : [];
+    });
+    
+    const [currentlyWatching, setCurrentlyWatching] = useState(() => {
+     const storedValue = localStorage.getItem('currentlyWatching');
+     return storedValue ? JSON.parse(storedValue) : [];
+    });
+    
   const [isLoading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [message, setMessage] = useState("");
@@ -403,6 +416,7 @@ export default function App() {
 
   function handleAddwatched(movie) {
     setWatched((watched) => [...watched, movie]);
+    // localStorage.setItem("watched",JSON.stringify([...watched, movie]));
   }
 
   function handleDeletewatched(id) {
@@ -419,7 +433,12 @@ export default function App() {
       }
     });
   }
-
+  useEffect(function(){
+    localStorage.setItem("watched",JSON.stringify(watched));
+  },[watched])
+  useEffect(function(){
+    localStorage.setItem("currentlyWatching",JSON.stringify(currentlyWatching));
+  },[currentlyWatching])
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
